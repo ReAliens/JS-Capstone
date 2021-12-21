@@ -1,12 +1,9 @@
-import _ from 'lodash';
+import './styles.css';
+import displayData from './utils/displayData.js';
+import icon from './images/pokemon.png';
 
-function component() {
-  const element = document.createElement('div');
-
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
-}
-
-document.body.appendChild(component());
+const logo = document.querySelector('.Pokemon-logo');
+const myIcon = new Image();
+myIcon.src = icon;
+logo.appendChild(myIcon);
+window.onload = displayData;
