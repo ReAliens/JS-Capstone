@@ -1,4 +1,4 @@
-import { getPokeData } from './utils/pokeData.js';
+import './styles.css';
+import displayData from './utils/displayData.js';
 
-getPokeData.then((data) => console.log(data));
-// console.log(data);
+window.onload = displayData;
