@@ -64,8 +64,8 @@
 footer {
   width: 100%;
   background-color: rgb(58, 101, 150);
+  position: sticky;
   bottom: 0;
-  position: fixed;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
