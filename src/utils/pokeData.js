@@ -1,24 +1,9 @@
-const baseUrl = ' https://pokeapi.co/api/v2/pokemon?limit=52';
+const baseUrl = ' https://api.tvmaze.com/shows';
 
-export const getData = async () => {
+const getData = async () => {
   const req = await fetch(baseUrl);
   const res = await req.json();
   return res;
 };
 
-export const getPokeData = getData().then(async (data) => {
-  const myArr = [];
-  await data?.results?.reduce(async (acc, curr) => {
-    acc = await acc;
-    try {
-      const req = await fetch(curr?.url);
-      const res = await req.json();
-      myArr.push(res);
-      return acc;
-    } catch (ex) {
-      return acc;
-    }
-  }, {});
-
-  return myArr;
-});
+export default getData;
