@@ -1,33 +1,33 @@
 .movie-popup {
-    display: none;
-    background: rgb(211, 190, 190);
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-  }
+  display: none;
+  background: rgb(211, 190, 190);
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
   
-  .movie-popup .popup-title {
-    text-align: center;
-    width: 110%;
-    margin: 25px 0;
-  }
+.movie-popup .popup-title {
+  text-align: center;
+  width: 110%;
+  margin: 25px 0;
+}
   
-  .movie-popup table {
-    width: 60%;
-    margin: 0 auto;
-    text-align: left;
-  }
+.movie-popup table {
+  width: 60%;
+  margin: 0 auto;
+  text-align: left;
+}
   
-  #close-popup {
-    display: block;
-    width: 100%;
-    text-align: right;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 900;
-    padding: 30px 30px 0 0;
-  }
+#close-popup {
+  display: block;
+  width: 100%;
+  text-align: right;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 900;
+  padding: 30px 30px 0 0;
+}
   

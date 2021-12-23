@@ -15,19 +15,19 @@ const fetchMovieComments = async (movieId) => {
   return response;
 };
 const displayMovieComments = (data) => {
-    popup.querySelector('.comments').innerHTML = data;
-  };
-  const enableClosePopup = () => {
-    document.querySelector('#close-popup').addEventListener('click', () => {
-      popup.style.display = 'none';
-      popup.innerHTML = '';
-    });
-  };
+  popup.querySelector('.comments').innerHTML = data;
+};
+const enableClosePopup = () => {
+  document.querySelector('#close-popup').addEventListener('click', () => {
+    popup.style.display = 'none';
+    popup.innerHTML = '';
+  });
+};
   const displayMoviePopup = (movieId) => {
-    popup.innerHTML = `Fetching data...<br>
+  popup.innerHTML = `Fetching data...<br>
     <span id="close-popup">X</span>`;
-    fetchMovieData(movieId).then((data) => {
-      popup.innerHTML = `
+  fetchMovieData(movieId).then((data) => {
+    popup.innerHTML = `
       <span id="close-popup">X</span>
       <img src="${data.image.medium}" class="popup-img">
       <h3 class="popup-title">${data.name}</h3>
@@ -56,30 +56,29 @@ const displayMovieComments = (data) => {
         fetching comments...
       </ul>
       `;
-      enableClosePopup();
-      fetchMovieComments().then((data) => {
-        if (!data.error) {
-          let comments = '';
-          data.forEach((comment) => {
-            comments += `<li>${comment.creation_date} ${comment.username}: ${comment.comment}</li>`;
-          });
-          displayMovieComments(comments);
-        } else {
-          displayMovieComments('Be the first person to comment...');
-        }
-      });
-    });
-    popup.style.display = 'block';
     enableClosePopup();
-  };
-  const enableComments = () => {
-    const commentBtns = document.querySelectorAll('.comment-btn');
-    commentBtns.forEach((movie) => {
-      movie.addEventListener('click', () => {
-        const movieId = movie.getAttribute('movie_id');
-        displayMoviePopup(movieId);
-      });
+    fetchMovieComments().then((data) => {
+      if (!data.error) {
+        let comments = '';
+        data.forEach((comment) => {
+          comments += `<li>${comment.creation_date} ${comment.username}: ${comment.comment}</li>`;
+        });
+        displayMovieComments(comments);
+      } else {
+        displayMovieComments('Be the first person to comment...');
+      }
     });
-  };
-  
-  export default enableComments;
+  });
+  popup.style.display = 'block';
+  enableClosePopup();
+};
+const enableComments = () => {
+  const commentBtns = document.querySelectorAll('.comment-btn');
+  commentBtns.forEach((movie) => {
+    movie.addEventListener('click', () => {
+      const movieId = movie.getAttribute('movie_id');
+      displayMoviePopup(movieId);
+    });
+  });
+};
+export default enableComments;
