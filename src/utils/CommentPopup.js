@@ -23,7 +23,7 @@ const enableClosePopup = () => {
     popup.innerHTML = '';
   });
 };
-  const displayMoviePopup = (movieId) => {
+const displayMoviePopup = (movieId) => {
   popup.innerHTML = `Fetching data...<br>
     <span id="close-popup">X</span>`;
   fetchMovieData(movieId).then((data) => {
