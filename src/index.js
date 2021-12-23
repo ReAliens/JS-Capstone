@@ -2,7 +2,7 @@ import './styles.css';
 import './comments.css';
 import displayData from './utils/displayData.js';
 import icon from './images/pokemon.png';
-import enableComments from './utils/CommentPopup';
+import './utils/CommentPopup.js';
 
 const logo = document.querySelector('.Pokemon-logo');
 const myIcon = new Image();
