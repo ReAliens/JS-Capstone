@@ -27,7 +27,7 @@
     <title>API based WebApp</title>
   </head>
 
-  <body>
+  <body class="main">
     <header class="header-container">
       <nav class="navigation">
         <a href="#container" class="Pokemon-logo"></a>
@@ -40,6 +40,34 @@
       </nav>
     </header>
     <div class="container"></div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <div class="closeButton" id="modalCloseButton">X</div>
+        <div id="thumbnail"></div>
+        <h2 id="modalTitle">Multi-post story</h2>
+        <ul class="movie-info">
+          <li class="info1"></li>
+          <li class="info2"></li>
+          <li class="info3"></li>
+          <li class="info4"></li>
+        </ul>
+        <h3 class="comments-title">Comments</h3>
+        <ul id="comments"></ul>
+        <form id="comment-form">
+          <h3>Add a Comment</h3>
+          <label for="name">Name</label>
+          <input id="name" maxlength="20" placeholder="Your Name" required />
+          <label for="insights">Insights</label>
+          <textarea
+            id="insights"
+            maxlength="100"
+            placeholder="Your Insights"
+            required
+          ></textarea>
+          <button class="submitButton" type="submit">Comment</button>
+        </form>
+      </div>
+    </div>
     <footer>
       <p class="my-footer">
         Created with &#10084;&#65039; by Ahmed Reda , Azeem Olatunji & Annah

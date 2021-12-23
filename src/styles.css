@@ -90,3 +90,92 @@ footer {
   width: 100%;
   object-fit: fill;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 100%;
+}
+
+.modal-content {
+  background-color: wheat;
+  z-index: 98;
+  align-items: center;
+  border: 2px solid #fff;
+  margin: 3% auto;
+  padding: 30px;
+  width: 80%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#thumbnail {
+  width: 80%;
+  height: 40%;
+}
+
+.modal img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.modal-content .buttonContainer {
+  width: 50%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.modal-content .buttonsLink {
+  width: 150px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 20px;
+}
+
+.modal-content .buttonsLink:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.modal-content a {
+  text-decoration: none;
+}
+
+.modal-content .closeButton {
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+}
+
+.movie-info {
+  width: 50%;
+  display: grid;
+  text-align: left;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+}
+
+textarea {
+  resize: none;
+}
