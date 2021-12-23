@@ -1,4 +1,5 @@
 import './styles.css';
+import './comments.css';
 import displayData from './utils/displayData.js';
 import icon from './images/pokemon.png';
 import enableComments from './utils/CommentPopup';
