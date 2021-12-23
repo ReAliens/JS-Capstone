@@ -190,3 +190,14 @@ textarea {
   justify-content: space-between;
 }
 
+.app-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+.items-count {
+  font-weight: bold;
+  font-size: larger;
+}
