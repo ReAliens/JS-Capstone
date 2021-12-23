@@ -1,92 +1,86 @@
-const popCard = async (movie) => {
-  const pop = document.querySelector("#popup");
-  pop.innerHTML = "";
-  // creat overlay div
-  const over = document.createElement("div");
-  console.log(movie);
-  over.innerHTML = movie.name;
-  // over.classList.add("overaly");
-  // over.classList.add("hidden");
-  // over.classList.add(`c-x-${movie.idmovie}`);
-  pop.appendChild(over);
-  const image = document.createElement("img");
-  image.src = movie.image.medium;
-  pop.appendChild(image);
 
-  const closeBtn = document.createElement("button");
-  closeBtn.addEventListener("click", () => {
-    pop.style.display = "none";
-  });
-  closeBtn.innerHTML = "Close";
-  pop.appendChild(closeBtn);
-  // creat content div
-  // const content = document.createElement("div");
-  // content.classList.add("content");
-  // content.classList.add("hidden");
-  // content.classList.add(`c-x-${movie.idmovie}`);
-  // content.id = `content2-${movie.idmovie}`;
-  // pop.appendChild(content);
-  // // Add divs inside content div
-  // // close button
-  // const closeBtn = document.createElement("div");
-  // closeBtn.classList.add("close-btn");
-  // content.appendChild(closeBtn);
-  // const x = document.createElement("p");
-  // x.classList.add("x");
-  // x.classList.add(`c-x-${movie.idmovie}`);
-  // x.innerText = "X";
-  // closeBtn.appendChild(x);
-  // // item photo
-  // const image = document.createElement("img");
-  // image.src = movie.strmovieThumb;
-  // image.height = "300";
-  // image.classList.add("photo");
-  // content.appendChild(image);
-  // // item name
-  // const Iname = document.createElement("p");
-  // Iname.classList.add("item-name");
-  // Iname.innerHTML = movie.strmovie;
-  // content.appendChild(Iname);
-  // // div for comments
-  // const commnts = document.createElement("div");
-  // commnts.classList.add("comment-num");
-  // content.appendChild(commnts);
 
-  // // creat form
-  // const form = document.createElement("form");
-  // form.className = "form_x";
-  // form.id = `${movie.idmovie}`;
-  // content.appendChild(form);
-  // // form title
-  // const formTitle = document.createElement("h3");
-  // formTitle.className = "form_title";
-  // formTitle.innerHTML = "Add a comment";
-  // form.appendChild(formTitle);
-  // // form name
-  // const nameInp = document.createElement("input");
-  // nameInp.type = "text";
-  // nameInp.id = `name-${movie.idmovie}`;
-  // nameInp.placeholder = "Your name";
-  // nameInp.className = "form_item";
-  // nameInp.required = true;
-  // form.appendChild(nameInp);
-  // // form textarea
-  // const commentText = document.createElement("textarea");
-  // commentText.name = "insights";
-  // commentText.id = `insight-${movie.idmovie}`;
-  // commentText.cols = "30";
-  // commentText.rows = "10";
-  // commentText.className = "form_item";
-  // commentText.placeholder = "Your Comment";
-  // commentText.required = true;
-  // form.appendChild(commentText);
-  // // creat submit button
-  // const submitCom = document.createElement("button");
-  // submitCom.type = "submit";
-  // submitCom.className = "form_item1";
-  // submitCom.className = "form_v";
-  // submitCom.className = `submit_${movie.idmovie}`;
-  // submitCom.innerHTML = "Comment";
-  // form.appendChild(submitCom);
+const url1 = 'https://api.tvmaze.com/shows';
+const reservationsEndpoint = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/8v2YvLQLsPQiil6nHJBM/reservations';
+const popup = document.querySelector('.movie-popup');
+
+const get = (url) => fetch(url)
+  .then((res) => res.json())
+  .then((data) => data)
+  .then((error) => error);
+const fetchMovieData = async (movieId) => {
+  const response = await get(`${url1}/${movieId}`);
+  return response;
 };
-export default popCard;
+const fetchMovieReservations = async (movieId) => {
+  const response = await get(`${reservationEndpoint}?item_id=${movieId}`);
+  return response;
+};
+const displayMovieReservations = (data) => {
+  popup.querySelector('.reservations').innerHTML = data;
+};
+const enableClosePopup = () => {
+  document.querySelector('#close-popup').addEventListener('click', () => {
+    popup.style.display = 'none';
+    popup.innerHTML = '';
+  });
+};
+  const displayMoviePopup = (movieId) => {
+  popup.innerHTML = `Fetching data...<br>
+    <span id="close-popup">X</span>`;
+  fetchMovieData(movieId).then((data) => {
+    popup.innerHTML = `
+      <span id="close-popup">X</span>
+      <img src="${data.image.medium}" class="popup-img">
+      <h3 class="popup-title">${data.name}</h3>
+      <table>
+        <tr>
+          <td>
+            <b>premiered:</b> ${data.premiered}
+          </td>
+          <td>
+            <b>Ended:</b> ${data.ended}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>Language:</b> ${data.language}
+          </td>
+          <td>
+            <b>Type:</b> ${data.type}
+          </td>
+        </tr>
+      </table>
+      <h3>
+      reservations (<span class="total-reservations">0</span>)
+      </h3>
+      <ul class="reservation">
+        fetching reservations...
+      </ul>
+      `;
+    enableClosePopup();
+    fetchMovieReservations().then((data) => {
+      if (!data.error) {
+        let reservations = '';
+        data.forEach((reservation) => {
+          reservations += `<li>${reservation.creation_date} ${reservation.username}: ${reservation.reservation}</li>`;
+        });
+        displayMovieReservations(reservations);
+      } else {
+        displayMovieReservations('Be the first person to reservation...');
+      }
+    });
+  });
+  popup.style.display = 'block';
+  enableClosePopup();
+};
+const enablereservations = () => {
+  const reservationBtns = document.querySelectorAll('.reservation-btn');
+  reservationBtns.forEach((movie) => {
+    movie.addEventListener('click', () => {
+      const movieId = movie.getAttribute('movie_id');
+      displayMoviePopup(movieId);
+    });
+  });
+};
+export default enablereservations;
