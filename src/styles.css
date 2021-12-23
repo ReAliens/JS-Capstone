@@ -111,8 +111,8 @@ footer {
   border: 2px solid #fff;
   margin: 1.5% auto;
   padding: 20px;
-  width: 60%;
-  height: 90vh;
+  width: 80%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -128,33 +128,6 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: fill;
-}
-
-.modal-content .buttonContainer {
-  width: 50%;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.modal-content .buttonsLink {
-  width: 150px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  padding: 20px;
-}
-
-.modal-content .buttonsLink:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-}
-
-.modal-content a {
-  text-decoration: none;
 }
 
 .modal-content .closeButton {
@@ -182,6 +155,7 @@ textarea {
 
 #comments {
   overflow: auto;
+  width: 50%;
 }
 
 #comment-form {
@@ -200,4 +174,22 @@ textarea {
 .items-count {
   font-weight: bold;
   font-size: larger;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightskyblue;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darkblue;
 }
