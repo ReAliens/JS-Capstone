@@ -13,7 +13,7 @@
   column-gap: 20px;
   row-gap: 10px;
   padding: 10px;
-  background-color: aqua;
+  background-color: rgb(255, 255, 255);
 }
 
 .card {
@@ -48,10 +48,17 @@
 
 .nav-list {
   font-family: 'Varela Round', sans-serif;
-  width: 300px;
+  width: 40%;
   display: flex;
   list-style: none;
-  justify-content: space-around;
+  padding: 0.8%;
+  justify-content: space-between;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.nav-list :hover {
+  color: bisque;
 }
 
 .my-logo {
@@ -63,10 +70,13 @@
 
 footer {
   width: 100%;
-  background-color: rgb(58, 101, 150);
+  padding: 0.8%;
+  background-color: rgb(58, 150, 150);
   position: sticky;
   bottom: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: aliceblue;
+  text-justify: auto;
 }
 
 .my-footer {
