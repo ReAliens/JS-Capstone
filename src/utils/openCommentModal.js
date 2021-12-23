@@ -27,7 +27,6 @@ const onOpenModal = (id) => {
     info3.innerHTML = `Status :${item.status}`;
     info4.innerHTML = `Run Time :${item.averageRuntime} min`;
 
-    console.log(item);
     modal.style.display = 'block';
     getComments(id).then((items) => {
       items.map((item) => {
@@ -49,6 +48,7 @@ const onOpenModal = (id) => {
           nameInput.value = '';
           commentInput.value = '';
         } catch (err) {
+          // eslint-disable-next-line no-console
           console.log(err);
         }
       }
