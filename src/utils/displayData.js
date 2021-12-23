@@ -1,5 +1,5 @@
-import { getLikesNumber } from '../api/apiInvolve.js';
-import getData from '../api/movieData.js';
+import { getLikesNumber } from '../api/apiInvolveLikes.js';
+import { getData } from '../api/movieData.js';
 import movieCard from '../components/card.js';
 import onOpenModal from './openCommentModal.js';
 
