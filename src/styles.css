@@ -109,18 +109,19 @@ footer {
   z-index: 98;
   align-items: center;
   border: 2px solid #fff;
-  margin: 3% auto;
-  padding: 30px;
-  width: 80%;
-  height: 80vh;
+  margin: 1.5% auto;
+  padding: 20px;
+  width: 60%;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 2%;
 }
 
 #thumbnail {
-  width: 80%;
-  height: 40%;
+  width: 50%;
+  height: 50%;
 }
 
 .modal img {
@@ -162,8 +163,7 @@ footer {
 }
 
 .modal-content h2 {
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 25px;
   text-align: center;
   color: white;
 }
@@ -179,3 +179,14 @@ footer {
 textarea {
   resize: none;
 }
+
+#comments {
+  overflow: auto;
+}
+
+#comment-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
