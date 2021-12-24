@@ -1,4 +1,4 @@
-import { getLikesNumber } from '../api/apiInvolveLikes.js';
+import { getLikesNumber, likePost } from '../api/apiInvolveLikes.js';
 import { getData } from '../api/movieData.js';
 import movieCard from '../components/card.js';
 import itemsCounter from './itemsCounter.js';
@@ -17,6 +17,21 @@ const displayData = () => {
         const children = itemsCounter(container);
         count.innerHTML = `${children} &nbsp; items listed`;
       }
+
+      document.querySelectorAll('.fa-heart').forEach((button) => {
+        button.addEventListener('click', async () => {
+          try {
+            likePost(Number(button.dataset.modal));
+          } catch (err) {
+            // eslint-disable-next-line no-console
+            console.log(err);
+          }
+          setTimeout(() => {
+            window.location.reload(1);
+          }, 1500);
+        });
+      });
+
       document.querySelectorAll('.comment').forEach((button) => {
         button.addEventListener('click', () => {
           onOpenModal(button.dataset.modal);

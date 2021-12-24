@@ -5,7 +5,7 @@ const movieCard = ({ item, likes }) => {
   return `<div class="card">
       <img src=${image?.original} class="movie-image" alt="cover"/>
       <div class="info-container">
-      <i class="fa fa-heart"></i>
+      <i class="fa fa-heart" data-modal=${id}></i>
      <span class="like-span">${movieLikes ? movieLikes.likes : 0}</span>
       </div>
       <button class="comment" data-modal=${id}>Comment</button>
