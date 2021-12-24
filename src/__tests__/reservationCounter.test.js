@@ -3,8 +3,8 @@ import reservationsVirtualDom from '../__mocks__/reservationMocks.js';
 
 reservationsVirtualDom();
 
-describe('test get comments count function', () => {
-  test('add test for comments Count', () => {
+describe('test get reservations count function', () => {
+  test('add test for reservations Count', () => {
     const reservationsContainer = document.getElementById('reservations');
     const reservation = `<div class="commnet-row">
     <span>Ahmed</span>
