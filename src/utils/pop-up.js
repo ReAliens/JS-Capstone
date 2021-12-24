@@ -2,9 +2,10 @@ import { reservationMovies, getReservations } from '../api/apiinvolveres.js';
 import { getSpecificMovie } from '../api/movieData.js';
 
 const modal = document.querySelector('#resmodal');
-const closeButton = document.querySelector('#modalCloseButton');
+const closeButton = document.querySelector("#res-modalCloseButton");
 const reservationForm = document.getElementById('reservation-form');
-const reservationInput = document.getElementById('insights');
+const startDateInput = document.getElementById("start-date");
+const endDateInput = document.getElementById("end-date");
 const nameInput = document.getElementById('name');
 
 const onOpenReservationModal = (id) => {
@@ -12,12 +13,12 @@ const onOpenReservationModal = (id) => {
     document.body.style.overflow = 'hidden';
     const thumbnail = new Image();
     thumbnail.src = item.image.original;
-    const modalTitle = document.getElementById('modalTitle');
-    const modalImage = document.getElementById('thumbnail');
-    const info1 = document.querySelector('.info1');
-    const info2 = document.querySelector('.info2');
-    const info3 = document.querySelector('.info3');
-    const info4 = document.querySelector('.info4');
+    const modalTitle = document.getElementById("res-modalTitle");
+    const modalImage = document.getElementById("res-thumbnail");
+    const info1 = document.querySelector(".res-info1");
+    const info2 = document.querySelector(".res-info2");
+    const info3 = document.querySelector(".res-info3");
+    const info4 = document.querySelector(".res-info4");
     const reservation = document.getElementById('reservations');
     const reservationTitle = document.querySelector('.reservations-title');
     modalImage.appendChild(thumbnail);
@@ -43,11 +44,16 @@ const onOpenReservationModal = (id) => {
 
     reservationForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      if (nameInput.value && reservationInput.value) {
+      if (nameInput.value && startDateInput.value && endDateInput.value) {
         try {
-          reservationMovies(id, nameInput.value, reservationInput.value);
-          nameInput.value = '';
-          reservationInput.value = '';
+          reservationMovies(
+            id,
+            nameInput.value,
+            startDateInput,
+            endDateInput.value
+          );
+          nameInput.value = "";
+          startDateInput.value = "";
         } catch (err) {
           // eslint-disable-next-line no-console
           console.log(err);
