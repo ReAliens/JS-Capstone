@@ -1,5 +1,6 @@
 import { commentMovies, getComments } from '../api/apiInvolveComments.js';
 import { getSpecificMovie } from '../api/movieData.js';
+import commentsCounter from './commentsCounter.js';
 
 const modal = document.querySelector('#modal');
 const closeButton = document.querySelector('#modalCloseButton');
@@ -37,7 +38,8 @@ const onOpenModal = (id) => {
         </div>`;
         return comment.insertAdjacentHTML('beforeend', commentFormat);
       });
-      commentTitle.innerHTML = `Comments (${items.length})`;
+      const commentsLength = commentsCounter(comment);
+      commentTitle.innerHTML = `Comments (${commentsLength})`;
     });
 
     commentForm.addEventListener('submit', (e) => {

@@ -1,5 +1,6 @@
 import { reservationMovies, getReservations } from '../api/apiinvolveres.js';
 import { getSpecificMovie } from '../api/movieData.js';
+import reservationCounter from './reservationCount.js';
 
 const modal = document.querySelector('#resmodal');
 const closeButton = document.querySelector('#res-modalCloseButton');
@@ -32,13 +33,14 @@ const onOpenReservationModal = (id) => {
     getReservations(id).then((items) => {
       items.map((item) => {
         const reservationFormat = `<div class='reserve-row'>
-        <span>${item.username}:</span>
-        <span>${item.date_start}</span>
-        <span>${item.date_end}</span>
+        <span>${item.username} &ensp;</span>
+        <span>start :${item.date_start}&ensp;</span>
+        <span>end :${item.date_end}</span>
         </div>`;
         return reservation.insertAdjacentHTML('beforeend', reservationFormat);
       });
-      reservationTitle.innerHTML = `reservations (${items.length})`;
+      const reservationCount = reservationCounter(reservation);
+      reservationTitle.innerHTML = `reservations (${reservationCount})`;
     });
 
     reservationForm.addEventListener('submit', (e) => {
