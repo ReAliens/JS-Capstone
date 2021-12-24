@@ -193,3 +193,7 @@ textarea {
   font-weight: bold;
   font-size: larger;
 }
+
+.fa-heart {
+  cursor: pointer;
+}
