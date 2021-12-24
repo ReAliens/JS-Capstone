@@ -330,3 +330,14 @@ textarea {
   font-weight: bold;
   font-size: larger;
 }
+
+#reservations {
+  overflow: auto;
+  width: 50%;
+}
+
+#reservation-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

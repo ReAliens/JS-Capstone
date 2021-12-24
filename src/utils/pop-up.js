@@ -1,13 +1,13 @@
-import { commentMovies, getComments } from "../api/apiInvolveComments.js";
+import { reservationMovies, getReservations } from "../api/apiinvolveres.js";
 import { getSpecificMovie } from "../api/movieData.js";
 
-const modal = document.querySelector("#modal");
+const modal = document.querySelector("#resmodal");
 const closeButton = document.querySelector("#modalCloseButton");
-const commentForm = document.getElementById("comment-form");
-const commentInput = document.getElementById("insights");
+const reservationForm = document.getElementById("reservation-form");
+const reservationInput = document.getElementById("insights");
 const nameInput = document.getElementById("name");
 
-const onOpenModal = (id) => {
+const onOpenReservationModal = (id) => {
   getSpecificMovie(id).then((item) => {
     document.body.style.overflow = "hidden";
     const thumbnail = new Image();
@@ -18,8 +18,8 @@ const onOpenModal = (id) => {
     const info2 = document.querySelector(".info2");
     const info3 = document.querySelector(".info3");
     const info4 = document.querySelector(".info4");
-    const comment = document.getElementById("comments");
-    const commentTitle = document.querySelector(".comments-title");
+    const reservation = document.getElementById("reservations");
+    const reservationTitle = document.querySelector(".reservations-title");
     modalImage.appendChild(thumbnail);
     modalTitle.innerText = item?.name;
     info1.innerHTML = `Language :${item.language}`;
@@ -28,25 +28,26 @@ const onOpenModal = (id) => {
     info4.innerHTML = `Run Time :${item.averageRuntime} min`;
 
     modal.style.display = "block";
-    getComments(id).then((items) => {
+    getReservations(id).then((items) => {
       items.map((item) => {
-        const commentFormat = `<div class="commnet-row">
-        <span>${item.creation_date}</span>
+        const reservationFormat = `<div class="reserve-row">
+        <span>${item.item_id}</span>
+        <span>${item.date_start}</span>
+        <span>${item.date_end}</span>
         <span>${item.username}:</span>
-        <span>${item.comment}</span>
         </div>`;
-        return comment.insertAdjacentHTML("beforeend", commentFormat);
+        return reservation.insertAdjacentHTML("beforeend", reservationFormat);
       });
-      commentTitle.innerHTML = `Comments (${items.length})`;
+      reservationTitle.innerHTML = `reservations (${items.length})`;
     });
 
-    commentForm.addEventListener("submit", (e) => {
+    reservationForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      if (nameInput.value && commentInput.value) {
+      if (nameInput.value && reservationInput.value) {
         try {
-          commentMovies(id, nameInput.value, commentInput.value);
+          reservationMovies(id, nameInput.value, reservationInput.value);
           nameInput.value = "";
-          commentInput.value = "";
+          reservationInput.value = "";
         } catch (err) {
           // eslint-disable-next-line no-console
           console.log(err);
@@ -62,4 +63,4 @@ closeButton.addEventListener("click", () => {
   window.location.reload();
 });
 
-export default onOpenModal;
+export default onOpenReservationModal;
