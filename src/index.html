@@ -72,7 +72,7 @@
     </div>
     <!-- reservations modal -->
 
-        <div class="res-modal" id="resmodal">
+    <div class="res-modal" id="resmodal">
       <div class="res-modal-content">
         <div class="res-closeButton" id="res-modalCloseButton">X</div>
         <div id="res-thumbnail"></div>
@@ -87,9 +87,24 @@
         <ul id="reservations"></ul>
         <form id="reservation-form">
           <h3 id="reservation-title">Add a reservation</h3>
-          <input id="res-name" maxlength="20" placeholder="Your Name" required />
-          <input type="date"  id="start-date" maxlength="20" placeholder="Your start date" required />
-          <input  id="end-date" type="date" maxlength="20" placeholder="Your end date" required />
+          <input
+            id="res-name"
+            maxlength="20"
+            placeholder="Your Name"
+            required
+          />
+          <input
+            type="date"
+            id="start-date"
+            placeholder="Your start date"
+            required
+          />
+          <input
+            id="end-date"
+            type="date"
+            placeholder="Your end date"
+            required
+          />
           <button class="res-submitButton" type="submit">Reservation</button>
         </form>
       </div>

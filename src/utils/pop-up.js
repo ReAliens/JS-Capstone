@@ -2,10 +2,10 @@ import { reservationMovies, getReservations } from '../api/apiinvolveres.js';
 import { getSpecificMovie } from '../api/movieData.js';
 
 const modal = document.querySelector('#resmodal');
-const closeButton = document.querySelector("#res-modalCloseButton");
+const closeButton = document.querySelector('#res-modalCloseButton');
 const reservationForm = document.getElementById('reservation-form');
-const startDateInput = document.getElementById("start-date");
-const endDateInput = document.getElementById("end-date");
+const startDateInput = document.getElementById('start-date');
+const endDateInput = document.getElementById('end-date');
 const nameInput = document.getElementById('res-name');
 
 const onOpenReservationModal = (id) => {
@@ -13,12 +13,12 @@ const onOpenReservationModal = (id) => {
     document.body.style.overflow = 'hidden';
     const thumbnail = new Image();
     thumbnail.src = item.image.original;
-    const modalTitle = document.getElementById("res-modalTitle");
-    const modalImage = document.getElementById("res-thumbnail");
-    const info1 = document.querySelector(".res-info1");
-    const info2 = document.querySelector(".res-info2");
-    const info3 = document.querySelector(".res-info3");
-    const info4 = document.querySelector(".res-info4");
+    const modalTitle = document.getElementById('res-modalTitle');
+    const modalImage = document.getElementById('res-thumbnail');
+    const info1 = document.querySelector('.res-info1');
+    const info2 = document.querySelector('.res-info2');
+    const info3 = document.querySelector('.res-info3');
+    const info4 = document.querySelector('.res-info4');
     const reservation = document.getElementById('reservations');
     const reservationTitle = document.querySelector('.reservations-title');
     modalImage.appendChild(thumbnail);
@@ -49,11 +49,11 @@ const onOpenReservationModal = (id) => {
             id,
             nameInput.value,
             startDateInput.value,
-            endDateInput.value
+            endDateInput.value,
           );
-          nameInput.value = "";
-          startDateInput.value = "";
-          endDateInput.value = "";
+          nameInput.value = '';
+          startDateInput.value = '';
+          endDateInput.value = '';
         } catch (err) {
           // eslint-disable-next-line no-console
           console.log(err);

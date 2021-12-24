@@ -167,22 +167,10 @@ footer {
   object-fit: fill;
 }
 
-#popup .content img {
-  width: 80%;
-  align-self: center;
-  margin-bottom: 3%;
-  border-radius: 3%;
-  -webkit-border-radius: 3%;
-  -moz-border-radius: 3%;
-  -ms-border-radius: 3%;
-  -o-border-radius: 3%;
-}
-
-#popup .content .item-name {
-  align-self: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #ff1018;
+#thumbnail img {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
 }
 
 #popup .content .reservation-num {
@@ -227,26 +215,6 @@ footer {
   align-items: center;
 }
 
-#popup .content .form_x .form_item {
-  width: 80%;
-  border: none;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 2%;
-  border-radius: 2.5%;
-  -webkit-border-radius: 2.5%;
-  -moz-border-radius: 2.5%;
-  -ms-border-radius: 2.5%;
-  -o-border-radius: 2.5%;
-}
-
-#popup .content .form_x button {
-  border: none;
-  padding: 1%;
-  background-color: #ff1018;
-  color: white;
-}
-
 .movie-image {
   height: 100%;
   width: 100%;
@@ -284,12 +252,6 @@ footer {
 #thumbnail {
   width: 50%;
   height: 50%;
-}
-
-#thumbnail img {
-  height: 100%;
-  width: 100%;
-  object-fit: fill;
 }
 
 .modal-content .closeButton {
@@ -353,7 +315,6 @@ textarea {
   cursor: pointer;
 }
 
-
 .res-modal {
   display: none;
   position: fixed;
@@ -410,15 +371,4 @@ textarea {
   text-align: left;
   grid-template-columns: repeat(2, 1fr);
   list-style: none;
-}
-
-#reservations {
-  overflow: auto;
-  width: 50%;
-}
-
-#reservation-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
