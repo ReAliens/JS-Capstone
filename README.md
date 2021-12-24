@@ -1,17 +1,21 @@
 # JS-Capstone
 
-![screenshot](DesktopviewSS.png)SCREENSHOT OF DESKTOP VERSION )
+![screenshot](src\image\Capture.PNG)SCREENSHOT OF DESKTOP VERSION )
 
 ## Built With
 
 - HTML
 - CSS
+- JAVASCRIPT
 - Git and Github
+- WEBPACK
+- JEST TESTING
+- EXTERNAL API
 - Technologies used
 
-## Live Demo
+## Live Video Presentation
 
-[Live Demo Link](https://zemola.github.io/MY-PORTFOLIO/)
+[Live Link](https://drive.google.com/file/d/1ZAS5-ER1gAaVitDApSL0dUstWmT3Uplu/view?usp=sharing)
 
 
 
