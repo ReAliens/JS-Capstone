@@ -44,7 +44,6 @@
       <span class="items-count">0</span>
     </div>
     <div class="container"></div>
-    <section id="popup"> </section>
     <div class="modal" id="modal">
       <div class="modal-content">
         <div class="closeButton" id="modalCloseButton">X</div>
@@ -88,9 +87,9 @@
         <ul id="reservations"></ul>
         <form id="reservation-form">
           <h3 id="reservation-title">Add a reservation</h3>
-          <input id="name" maxlength="20" placeholder="Your Name" required />
-          <input  id="start-date" maxlength="20" placeholder="Your start date" required />
-          <input  id="end-date" maxlength="20" placeholder="Your end date" required />
+          <input id="res-name" maxlength="20" placeholder="Your Name" required />
+          <input type="date"  id="start-date" maxlength="20" placeholder="Your start date" required />
+          <input  id="end-date" type="date" maxlength="20" placeholder="Your end date" required />
           <button class="res-submitButton" type="submit">Reservation</button>
         </form>
       </div>

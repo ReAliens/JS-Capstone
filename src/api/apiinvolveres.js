@@ -1,4 +1,5 @@
-const baseUrl = "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps";
+const baseUrl =
+  "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps";
 const appId = "WJ94PTIw3sHPQ1asnzBz";
 
 export const reservationMovies = async (itemID, name, dateStart, dateEnd) => {
@@ -8,10 +9,11 @@ export const reservationMovies = async (itemID, name, dateStart, dateEnd) => {
       item_id: itemID,
       username: name,
       date_start: dateStart,
-      date_end:  dateEnd,
+      date_end: dateEnd,
     }),
     headers: { "Content-Type": "application/json" },
   });
+  console.log(itemID, name, dateEnd, dateStart);
   const res = await req.json();
   return res;
 };

@@ -6,7 +6,7 @@ const closeButton = document.querySelector("#res-modalCloseButton");
 const reservationForm = document.getElementById('reservation-form');
 const startDateInput = document.getElementById("start-date");
 const endDateInput = document.getElementById("end-date");
-const nameInput = document.getElementById('name');
+const nameInput = document.getElementById('res-name');
 
 const onOpenReservationModal = (id) => {
   getSpecificMovie(id).then((item) => {
@@ -32,10 +32,9 @@ const onOpenReservationModal = (id) => {
     getReservations(id).then((items) => {
       items.map((item) => {
         const reservationFormat = `<div class='reserve-row'>
-        <span>${item.item_id}</span>
+        <span>${item.username}:</span>
         <span>${item.date_start}</span>
         <span>${item.date_end}</span>
-        <span>${item.username}:</span>
         </div>`;
         return reservation.insertAdjacentHTML('beforeend', reservationFormat);
       });
@@ -49,11 +48,12 @@ const onOpenReservationModal = (id) => {
           reservationMovies(
             id,
             nameInput.value,
-            startDateInput,
+            startDateInput.value,
             endDateInput.value
           );
           nameInput.value = "";
           startDateInput.value = "";
+          endDateInput.value = "";
         } catch (err) {
           // eslint-disable-next-line no-console
           console.log(err);
