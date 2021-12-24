@@ -56,6 +56,10 @@ const onOpenReservationModal = (id) => {
           nameInput.value = '';
           startDateInput.value = '';
           endDateInput.value = '';
+          setTimeout(() => {
+            // eslint-disable-next-line no-alert
+            alert('you should re-open movie modal to see your reservation');
+          }, 1000);
         } catch (err) {
           // eslint-disable-next-line no-console
           console.log(err);

@@ -49,6 +49,10 @@ const onOpenModal = (id) => {
           commentMovies(id, nameInput.value, commentInput.value);
           nameInput.value = '';
           commentInput.value = '';
+          setTimeout(() => {
+            // eslint-disable-next-line no-alert
+            alert('you should re-open movie modal to see your comment');
+          }, 1000);
         } catch (err) {
           // eslint-disable-next-line no-console
           console.log(err);
