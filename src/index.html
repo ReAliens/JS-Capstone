@@ -27,7 +27,7 @@
     <title>Entertainment</title>
   </head>
 
-  <body class="main">
+  <body>
     <header class="header-container">
       <nav class="navigation">
         <a href="#container" class="Pokemon-logo"></a>
@@ -44,6 +44,9 @@
       <span class="items-count">0</span>
     </div>
     <div class="container"></div>
+    
+    <!--comments Modal-->
+
     <div class="modal" id="modal">
       <div class="modal-content">
         <div class="closeButton" id="modalCloseButton">X</div>
@@ -93,16 +96,8 @@
             placeholder="Your Name"
             required
           />
-          <input
-            type="date"
-            id="start-date"
-            required
-          />
-          <input
-            id="end-date"
-            type="date"
-            required
-          />
+          <input type="date" id="start-date" required />
+          <input id="end-date" type="date" required />
           <button class="res-submitButton" type="submit">Reservation</button>
         </form>
       </div>
