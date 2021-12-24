@@ -24,28 +24,57 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <title>API based WebApp</title>
+    <title>Entertainment</title>
   </head>
 
-  <body>
+  <body class="main">
     <header class="header-container">
       <nav class="navigation">
-        <a href="#" class="Pokemon-logo"></a>
+        <a href="#container" class="Pokemon-logo"></a>
         <ul class="nav-list">
           <li>Home</li>
-          <li>Videos,Games&Apps</li>
-          <li>Pokemon TV</li>
-          <li>Pokemon Events</li>
+          <li>Movie TV</li>
+          <li>Events</li>
           <li>News</li>
         </ul>
       </nav>
     </header>
+    <div class="app-title">
+      <h1>Best Shows for entertainment</h1>
+      <span class="items-count">0</span>
+    </div>
     <div class="container"></div>
     <section id="popup"> </section>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <div class="closeButton" id="modalCloseButton">X</div>
+        <div id="thumbnail"></div>
+        <h2 id="modalTitle">Multi-post story</h2>
+        <ul class="movie-info">
+          <li class="info1"></li>
+          <li class="info2"></li>
+          <li class="info3"></li>
+          <li class="info4"></li>
+        </ul>
+        <h3 class="comments-title">Comments</h3>
+        <ul id="comments"></ul>
+        <form id="comment-form">
+          <h3 id="comment-title">Add a Comment</h3>
+          <input id="name" maxlength="20" placeholder="Your Name" required />
+          <textarea
+            id="insights"
+            maxlength="100"
+            placeholder="Your Insights"
+            required
+          ></textarea>
+          <button class="submitButton" type="submit">Comment</button>
+        </form>
+      </div>
+    </div>
     <footer>
       <p class="my-footer">
-        Created with &#10084;&#65039; by Annah Tumworobere,Ahmed Reda & Azeem
-        Olatunji Under MIT Licence
+        Created with &#10084;&#65039; by Ahmed Reda , Azeem Olatunji & Annah
+        Tumworobere, Under MIT CC Licence
       </p>
     </footer>
   </body>

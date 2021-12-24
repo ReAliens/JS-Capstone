@@ -8,8 +8,8 @@ const movieCard = ({ item, likes }) => {
       <i class="fa fa-heart"></i>
      <span class="like-span">${movieLikes ? movieLikes.likes : 0}</span>
       </div>
-      <button class="comment-button">Comment</button>
-      <button id="view" data-modal=${id} type="button" class="viewButton">See Project</button>
+      <button class="comment" data-modal=${id}>Comment</button>
+      <button data-modal=${id} type="button" class="reserve">Reservation</button>
       </div>`;
 };
 

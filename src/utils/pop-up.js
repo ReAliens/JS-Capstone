@@ -1,86 +1,65 @@
+import { commentMovies, getComments } from "../api/apiInvolveComments.js";
+import { getSpecificMovie } from "../api/movieData.js";
 
+const modal = document.querySelector("#modal");
+const closeButton = document.querySelector("#modalCloseButton");
+const commentForm = document.getElementById("comment-form");
+const commentInput = document.getElementById("insights");
+const nameInput = document.getElementById("name");
 
-const url1 = 'https://api.tvmaze.com/shows';
-const reservationsEndpoint = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/8v2YvLQLsPQiil6nHJBM/reservations';
-const popup = document.querySelector('.movie-popup');
+const onOpenModal = (id) => {
+  getSpecificMovie(id).then((item) => {
+    document.body.style.overflow = "hidden";
+    const thumbnail = new Image();
+    thumbnail.src = item.image.original;
+    const modalTitle = document.getElementById("modalTitle");
+    const modalImage = document.getElementById("thumbnail");
+    const info1 = document.querySelector(".info1");
+    const info2 = document.querySelector(".info2");
+    const info3 = document.querySelector(".info3");
+    const info4 = document.querySelector(".info4");
+    const comment = document.getElementById("comments");
+    const commentTitle = document.querySelector(".comments-title");
+    modalImage.appendChild(thumbnail);
+    modalTitle.innerText = item?.name;
+    info1.innerHTML = `Language :${item.language}`;
+    info2.innerHTML = `Rating :${item.rating.average}`;
+    info3.innerHTML = `Status :${item.status}`;
+    info4.innerHTML = `Run Time :${item.averageRuntime} min`;
 
-const get = (url) => fetch(url)
-  .then((res) => res.json())
-  .then((data) => data)
-  .then((error) => error);
-const fetchMovieData = async (movieId) => {
-  const response = await get(`${url1}/${movieId}`);
-  return response;
-};
-const fetchMovieReservations = async (movieId) => {
-  const response = await get(`${reservationEndpoint}?item_id=${movieId}`);
-  return response;
-};
-const displayMovieReservations = (data) => {
-  popup.querySelector('.reservations').innerHTML = data;
-};
-const enableClosePopup = () => {
-  document.querySelector('#close-popup').addEventListener('click', () => {
-    popup.style.display = 'none';
-    popup.innerHTML = '';
-  });
-};
-  const displayMoviePopup = (movieId) => {
-  popup.innerHTML = `Fetching data...<br>
-    <span id="close-popup">X</span>`;
-  fetchMovieData(movieId).then((data) => {
-    popup.innerHTML = `
-      <span id="close-popup">X</span>
-      <img src="${data.image.medium}" class="popup-img">
-      <h3 class="popup-title">${data.name}</h3>
-      <table>
-        <tr>
-          <td>
-            <b>premiered:</b> ${data.premiered}
-          </td>
-          <td>
-            <b>Ended:</b> ${data.ended}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <b>Language:</b> ${data.language}
-          </td>
-          <td>
-            <b>Type:</b> ${data.type}
-          </td>
-        </tr>
-      </table>
-      <h3>
-      reservations (<span class="total-reservations">0</span>)
-      </h3>
-      <ul class="reservation">
-        fetching reservations...
-      </ul>
-      `;
-    enableClosePopup();
-    fetchMovieReservations().then((data) => {
-      if (!data.error) {
-        let reservations = '';
-        data.forEach((reservation) => {
-          reservations += `<li>${reservation.creation_date} ${reservation.username}: ${reservation.reservation}</li>`;
-        });
-        displayMovieReservations(reservations);
-      } else {
-        displayMovieReservations('Be the first person to reservation...');
+    modal.style.display = "block";
+    getComments(id).then((items) => {
+      items.map((item) => {
+        const commentFormat = `<div class="commnet-row">
+        <span>${item.creation_date}</span>
+        <span>${item.username}:</span>
+        <span>${item.comment}</span>
+        </div>`;
+        return comment.insertAdjacentHTML("beforeend", commentFormat);
+      });
+      commentTitle.innerHTML = `Comments (${items.length})`;
+    });
+
+    commentForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (nameInput.value && commentInput.value) {
+        try {
+          commentMovies(id, nameInput.value, commentInput.value);
+          nameInput.value = "";
+          commentInput.value = "";
+        } catch (err) {
+          // eslint-disable-next-line no-console
+          console.log(err);
+        }
       }
     });
   });
-  popup.style.display = 'block';
-  enableClosePopup();
 };
-const enablereservations = () => {
-  const reservationBtns = document.querySelectorAll('.reservation-btn');
-  reservationBtns.forEach((movie) => {
-    movie.addEventListener('click', () => {
-      const movieId = movie.getAttribute('movie_id');
-      displayMoviePopup(movieId);
-    });
-  });
-};
-export default enablereservations;
+
+closeButton.addEventListener("click", () => {
+  document.body.style.overflow = "visible";
+  modal.style.display = "none";
+  window.location.reload();
+});
+
+export default onOpenModal;
