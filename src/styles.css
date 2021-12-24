@@ -342,3 +342,7 @@ textarea {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.fa-heart {
+  cursor: pointer;
+}
