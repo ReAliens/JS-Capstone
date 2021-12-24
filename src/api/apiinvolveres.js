@@ -1,5 +1,4 @@
-const baseUrl =
-  "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps";
+const baseUrl = "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps";
 const appId = "WJ94PTIw3sHPQ1asnzBz";
 
 export const reservationMovies = async (itemID, name, dateStart, dateEnd) => {
