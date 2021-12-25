@@ -54,8 +54,7 @@ const onOpenModal = (id) => {
             alert('you should re-open movie modal to see your comment');
           }, 1000);
         } catch (err) {
-          // eslint-disable-next-line no-console
-          console.log(err);
+          throw new Error('Error in fetching data');
         }
       }
     });
