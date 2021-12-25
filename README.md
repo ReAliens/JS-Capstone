@@ -13,9 +13,14 @@
 - EXTERNAL API
 - Technologies used
 
+## Live Demo
+
+<a href= "https://realiens.github.io/JS-Capstone/dist/">ENTERTAINMENT</a>
+
+
 ## Live Video Presentation
 
-[Live Link](https://drive.google.com/file/d/1ZAS5-ER1gAaVitDApSL0dUstWmT3Uplu/view?usp=sharing)
+[Presentation Link](https://drive.google.com/file/d/1ZAS5-ER1gAaVitDApSL0dUstWmT3Uplu/view?usp=sharing)
 
 
 
