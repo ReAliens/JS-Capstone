@@ -1,6 +1,6 @@
 # JS-Capstone
 
-![screenshot](src\image\Capture.PNG)SCREENSHOT OF DESKTOP VERSION )
+![screenshot](src\image\Capture.PNG)SCREENSHOT OF DESKTOP VERSION 
 
 ## Built With
 
