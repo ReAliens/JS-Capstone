@@ -24,8 +24,7 @@ const displayData = () => {
           try {
             likePost(Number(button.dataset.modal));
           } catch (err) {
-            // eslint-disable-next-line no-console
-            console.log(err);
+            throw new Error('Error in fetching data');
           }
           setTimeout(() => {
             window.location.reload(1);
